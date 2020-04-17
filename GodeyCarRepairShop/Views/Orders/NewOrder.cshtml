@@ -1,0 +1,122 @@
+﻿@model CustomerOrder
+@{
+    ViewData["Title"] = "NewOrder";
+}
+
+
+<div class="container-fluid">
+
+    <form asp-action="NewOrder" method="post">
+
+        @Html.HiddenFor(x => x.ServiceId)
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+
+                <div class="card mb-3">
+                    <h3 class="card-header text-center">@Model.Service.ServiceName</h3>
+                    @if (Model.Service.ServiceImage != null)
+                    {
+                        <img style="height: 200px; width: 100%; display: block;" src="data:image;base64, @Convert.ToBase64String(Model.Service.ServiceImage)" alt="Card image">
+                    }
+                    else
+                    {
+                        <p>NO Images</p>
+                    }
+                    <div class="card-body">
+                        <p class="card-text">@Model.Service.Description</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <span>Cost: $@Model.Service.Cost</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4"></div>
+
+
+            <div class=" col-3">
+
+                <div class="form-group">
+                    <label asp-for="Customer.FirstName" class="control-label"></label>
+                    <input asp-for="Customer.FirstName" class="form-control" />
+                    <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class=" col-3">
+                <div class="form-group">
+                    <label asp-for="Customer.LastName" class="control-label"></label>
+                    <input asp-for="Customer.LastName" class="form-control" />
+                    <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class=" col-3">
+                <div class="form-group">
+                    <label asp-for="Customer.Email" class="control-label"></label>
+                    <input asp-for="Customer.Email" class="form-control" />
+                    <span asp-validation-for="Customer.Email" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <disv class=" col-3">
+                <div class="form-group">
+                    <label asp-for="Customer.Phone" class="control-label"></label>
+                    <input asp-for="Customer.Phone" class="form-control" />
+                    <span asp-validation-for="Customer.Phone" class="text-danger"></span>
+                </div>
+
+            </disv>
+
+            <div class=" col-3">
+
+                <div class="form-group">
+                    <label asp-for="Customer.Make" class="control-label"></label>
+                    <input asp-for="Customer.Make" class="form-control" />
+                    <span asp-validation-for="Customer.Make" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class=" col-3">
+                <div class="form-group">
+                    <label asp-for="Customer.Model" class="control-label"></label>
+                    <input asp-for="Customer.Model" class="form-control" />
+                    <span asp-validation-for="Customer.Model" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class=" col-3">
+                <div class="form-group">
+                    <label asp-for="Customer.Year" class="control-label"></label>
+                    <input asp-for="Customer.Year" class="form-control" />
+                    <span asp-validation-for="Customer.Year" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-4 offset-4">
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-success" /> |
+                    <a asp-action="Index" asp-controller="Home">Back to List</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>
+
+
+
+
